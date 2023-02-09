@@ -33,7 +33,7 @@
 
 ###
 
-<img src="https://raw.githubusercontent.com/blasterwhite/blasterwhite/blob/output/snake.svg" alt="Snake animation" />
+<img src="https://raw.githubusercontent.com/BlasterWhite/blasterwhite/output/snake.svg" alt="Snake animation" />
 
 ###
 
