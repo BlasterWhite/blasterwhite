@@ -12,8 +12,6 @@
 <div align="center">
   <img src="https://profile-counter.glitch.me/blasterwhite/count.svg?"  />
 </div>
----
-
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
 <!--
