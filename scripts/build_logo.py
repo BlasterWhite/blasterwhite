@@ -1,70 +1,89 @@
 #!/usr/bin/env python3
-"""Builds the BlasterWhite logo: three tildes stacked on top of each other, one color each.
+"""Builds the BlasterWhite logo: three "~" stacked close together, one color each.
 
-Pure geometry (no fonts, no dependencies). Each tilde is a sine wave drawn as a thick
-stroke with round caps, the same wave shape as the ribbons in the profile hero.
+The tilde is the real glyph from Fira Code Bold, embedded below as an outline so the
+script needs no font and no dependency. To try another font, pass --font (needs fontTools).
 
 Usage:
-    python3 scripts/build_logo.py                       # writes profile/logo.svg and profile/logo-dark.svg
-    python3 scripts/build_logo.py --colors "#F2404A,#2BD540,#19B4E8" --gap 0.36 --stroke 0.16
+    python3 scripts/build_logo.py                        # writes profile/logo.svg and profile/logo-dark.svg
+    python3 scripts/build_logo.py --gap=-0.15            # tildes closer (negative values nest them)
+    python3 scripts/build_logo.py --colors "#F2404A,#2BD540,#19B4E8"
+    python3 scripts/build_logo.py --font /path/to/Font-Bold.ttf
 """
 import argparse
-import math
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 INK = "#0B1A2B"
 COLORS = ["#F2404A", "#2BD540", "#19B4E8"]  # red, green, blue: same order as the hero ribbons
 
+# "asciitilde" from Fira Code Bold (SIL Open Font License 1.1), in font units, y pointing up.
+FIRA_TILDE = (
+    "M406 860Q480 860 534.5 830.0Q589 800 632.5 760.0Q676 720 716.5 690.0Q757 660 802 660"
+    "Q859 660 899.5 700.5Q940 741 980 817L1157 737Q1093 598 1010.5 509.5Q928 421 794 421"
+    "Q722 421 667.5 451.0Q613 481 569.0 521.0Q525 561 484.0 591.0Q443 621 398 621"
+    "Q340 621 299.5 579.0Q259 537 220 465L43 544Q84 628 134.0 700.0Q184 772 250.0 816.0"
+    "Q316 860 406 860Z"
+)
+FIRA_BOUNDS = (43, 421, 1157, 860)  # xMin, yMin, xMax, yMax
 
-def tilde(cx, cy, width, amp, steps=96, extend=0.14):
-    """Path for one tilde centred on (cx, cy): hump on the left, dip on the right.
 
-    One full sine period, extended a little at both ends so the tips curl back
-    like a typed ~ instead of ending flat.
+def glyph_from_font(path, char="~"):
+    """Extracts a glyph outline and its bounds from a font file (needs fontTools)."""
+    from fontTools.ttLib import TTFont
+    from fontTools.pens.svgPathPen import SVGPathPen
+    from fontTools.pens.boundsPen import BoundsPen
+    font = TTFont(path)
+    gs = font.getGlyphSet()
+    glyph = gs[font.getBestCmap()[ord(char)]]
+    pen, bounds = SVGPathPen(gs), BoundsPen(gs)
+    glyph.draw(pen)
+    glyph.draw(bounds)
+    return pen.getCommands(), bounds.bounds
+
+
+def logo(d, bounds, size, colors, gap, margin, bg=None, radius=0.22):
+    """Stacks the glyph once per color, centred in a square of `size` px.
+
+    gap is the space between two tildes, as a fraction of the tilde's height.
+    margin is the free space around the stack, as a fraction of size.
     """
-    t0, t1 = -math.pi * (1 + extend), math.pi * (1 + extend)
-    pts = []
-    for i in range(steps + 1):
-        t = t0 + (t1 - t0) * i / steps
-        x = cx + width / 2 * t / math.pi / (1 + extend)
-        y = cy + amp * math.sin(t)  # SVG y points down: sin < 0 on the left = hump up
-        pts.append(f"{x:.2f} {y:.2f}")
-    return "M" + "L".join(pts)
-
-
-def logo(size, colors, gap, stroke, amp, width, bg=None, radius=0.22):
-    """Returns an SVG document. All lengths except size are fractions of size."""
-    s = size
-    sw = stroke * s
-    mid = s / 2
+    x0, y0, x1, y1 = bounds
+    gw, gh = x1 - x0, y1 - y0
+    n = len(colors)
+    stack_h = gh * (n + gap * (n - 1))
+    k = size * (1 - 2 * margin) / max(gw, stack_h)  # font units -> px
+    left = (size - gw * k) / 2
+    top = (size - stack_h * k) / 2
     paths = []
     for i, col in enumerate(colors):
-        cy = mid + (i - (len(colors) - 1) / 2) * gap * s
-        d = tilde(mid, cy, width * s, amp * s)
-        paths.append(f'<path d="{d}" fill="none" stroke="{col}" stroke-width="{sw:.2f}" '
-                     f'stroke-linecap="round" stroke-linejoin="round"/>')
-    back = f'<rect width="{s}" height="{s}" rx="{radius * s:.1f}" fill="{bg}"/>' if bg else ""
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{s}" height="{s}" viewBox="0 0 {s} {s}" '
-            f'role="img" aria-label="BlasterWhite logo">{back}{"".join(paths)}</svg>\n')
+        ty = top + i * gh * (1 + gap) * k  # top edge of this tilde, in px
+        # flip y (fonts point up), then move the glyph's top-left corner to (left, ty)
+        tf = f"translate({left - x0 * k:.2f} {ty + y1 * k:.2f}) scale({k:.5f} {-k:.5f})"
+        paths.append(f'<path transform="{tf}" fill="{col}" d="{d}"/>')
+    back = f'<rect width="{size}" height="{size}" rx="{radius * size:.1f}" fill="{bg}"/>' if bg else ""
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}" '
+            f'viewBox="0 0 {size} {size}" role="img" aria-label="BlasterWhite logo">'
+            f'{back}{"".join(paths)}</svg>\n')
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--colors", default=",".join(COLORS), help="comma-separated colors, top to bottom")
+    ap.add_argument("--gap", type=float, default=-0.05,
+                    help="space between tildes, fraction of a tilde's height; negative nests them (pass as --gap=-0.1)")
     ap.add_argument("--size", type=int, default=512, help="canvas size in px (square)")
-    ap.add_argument("--gap", type=float, default=0.24, help="vertical distance between tildes, fraction of size")
-    ap.add_argument("--stroke", type=float, default=0.11, help="line thickness, fraction of size")
-    ap.add_argument("--amp", type=float, default=0.075, help="wave height, fraction of size")
-    ap.add_argument("--width", type=float, default=0.62, help="tilde width, fraction of size")
+    ap.add_argument("--margin", type=float, default=0.16, help="space around the logo, fraction of size")
     ap.add_argument("--bg", default=INK, help="background of the dark variant")
+    ap.add_argument("--font", help="take the tilde from this font file instead of Fira Code Bold (needs fontTools)")
     ap.add_argument("--out", default=str(ROOT / "profile"), help="output folder")
     a = ap.parse_args()
 
+    d, bounds = glyph_from_font(a.font) if a.font else (FIRA_TILDE, FIRA_BOUNDS)
     colors = [c.strip() for c in a.colors.split(",") if c.strip()]
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    common = dict(size=a.size, colors=colors, gap=a.gap, stroke=a.stroke, amp=a.amp, width=a.width)
+    common = dict(d=d, bounds=bounds, size=a.size, colors=colors, gap=a.gap, margin=a.margin)
     (out / "logo.svg").write_text(logo(**common))
     (out / "logo-dark.svg").write_text(logo(**common, bg=a.bg))
     print(f"wrote {out / 'logo.svg'} and {out / 'logo-dark.svg'}")
