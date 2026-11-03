@@ -20,50 +20,38 @@
 <!-- Tech stack -->
 ## 🧁 Tech stack
 
-<table align="center">
-  <tr>
-    <td align="right"><b>Languages</b></td>
-    <td><img src="https://skillicons.dev/icons?i=ts,js,py,java,kotlin,cpp,c,cs,php&theme=light" alt="Languages" /></td>
-  </tr>
-  <tr>
-    <td align="right"><b>Frontend</b></td>
-    <td><img src="https://skillicons.dev/icons?i=html,css,sass,vue,nuxt,vite,vuetify&theme=light" alt="Frontend" /></td>
-  </tr>
-  <tr>
-    <td align="right"><b>Backend</b></td>
-    <td><img src="https://skillicons.dev/icons?i=nodejs,express,graphql,kafka&theme=light" alt="Backend" /></td>
-  </tr>
-  <tr>
-    <td align="right"><b>Data</b></td>
-    <td><img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,elasticsearch&theme=light" alt="Data" /></td>
-  </tr>
-  <tr>
-    <td align="right"><b>Tools</b></td>
-    <td><img src="https://skillicons.dev/icons?i=docker,nginx,git,linux,figma&theme=light" alt="Tools" /></td>
-  </tr>
-</table>
+<p align="center">
+  <sub><b>LANGUAGES</b></sub><br />
+  <img src="https://skillicons.dev/icons?i=ts,js,py,java,kotlin,cpp,c,cs,php&theme=light" alt="Languages" />
+</p>
+
+<p align="center">
+  <sub><b>FRONTEND</b></sub><br />
+  <img src="https://skillicons.dev/icons?i=html,css,sass,vue,nuxt,vite,vuetify&theme=light" alt="Frontend" />
+</p>
+
+<p align="center">
+  <sub><b>BACKEND</b></sub><br />
+  <img src="https://skillicons.dev/icons?i=nodejs,express,graphql,kafka&theme=light" alt="Backend" />
+</p>
+
+<p align="center">
+  <sub><b>DATA</b></sub><br />
+  <img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,elasticsearch&theme=light" alt="Data" />
+</p>
+
+<p align="center">
+  <sub><b>TOOLS</b></sub><br />
+  <img src="https://skillicons.dev/icons?i=docker,nginx,git,linux,figma&theme=light" alt="Tools" />
+</p>
 
 <!-- Projects -->
 ## 🎀 Featured projects
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/BlasterWhite/Unolingo">🈴 Unolingo</a></h3>
-      <p>An Android app to learn Japanese characters through quizzes: hiragana, katakana and kanji, an audio mode with Japanese text-to-speech, and a split-screen 1v1 duel.</p>
-      <img src="https://img.shields.io/badge/Kotlin-CDB4DB?style=flat-square&logo=kotlin&logoColor=4A3A5C" alt="Kotlin" />
-      <img src="https://img.shields.io/badge/Jetpack_Compose-FFC8DD?style=flat-square&logo=jetpackcompose&logoColor=4A3A5C" alt="Jetpack Compose" />
-      <img src="https://img.shields.io/badge/Room-FFAFCC?style=flat-square&logo=sqlite&logoColor=4A3A5C" alt="Room" />
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/BlasterWhite/ChevalierEchec">♞ ChevalierEchec</a></h3>
-      <p>A Knight's Tour solver: several backtracking algorithms that move a knight across every square of a chessboard, with a Tkinter board to watch it play.</p>
-      <img src="https://img.shields.io/badge/Python-CDB4DB?style=flat-square&logo=python&logoColor=4A3A5C" alt="Python" />
-      <img src="https://img.shields.io/badge/Tkinter-FFC8DD?style=flat-square&logoColor=4A3A5C" alt="Tkinter" />
-      <img src="https://img.shields.io/badge/Algorithms-FFAFCC?style=flat-square&logoColor=4A3A5C" alt="Algorithms" />
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <a href="https://github.com/BlasterWhite/Unolingo"><img src="./profile/unolingo.svg" alt="Unolingo: Android app to learn Japanese characters" width="49%" /></a>
+  <a href="https://github.com/BlasterWhite/ChevalierEchec"><img src="./profile/chevalierechec.svg" alt="ChevalierEchec: Knight's Tour solver" width="49%" /></a>
+</p>
 
 <!-- Stats -->
 ## 📊 GitHub stats

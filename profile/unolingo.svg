@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="170" viewBox="0 0 420 170" role="img" aria-label="Unolingo">
+  <style>
+    .t { font: 600 19px 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; fill: #B07CC6; }
+    .s { font: 500 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; fill: #E58FB8; letter-spacing: .6px; }
+    .d { font: 400 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; fill: #4A3A5C; }
+    .p { font: 600 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; fill: #4A3A5C; }
+    .f { opacity: 0; animation: in .6s ease-out forwards; }
+    @keyframes in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" gradientTransform="rotate(30)">
+      <stop offset="0" stop-color="#F3E8FF"/><stop offset="1" stop-color="#FFE4EF"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#CDB4DB"/><stop offset="1" stop-color="#FFAFCC"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="170" rx="12" fill="url(#bg)"/>
+  <rect x="0" y="22" width="5" height="126" rx="2.5" fill="url(#bar)"/>
+  <g class="f">
+    <text x="24" y="38" class="t">Unolingo</text>
+    <text x="24" y="57" class="s">ANDROID APP · LEARN JAPANESE</text>
+  </g>
+  <g class="f" style="animation-delay:.15s">
+    <text x="24" y="84" class="d">Learn hiragana, katakana and kanji through quizzes,</text>
+    <text x="24" y="102" class="d">with an audio mode using Japanese text-to-speech</text>
+    <text x="24" y="120" class="d">and a split-screen 1v1 duel on one phone.</text>
+  </g>
+  <g class="f" style="animation-delay:.3s">
+    <rect x="24" y="134" width="59" height="20" rx="10" fill="#CDB4DB"/>
+    <text x="53.5" y="148" text-anchor="middle" class="p">Kotlin</text>
+    <rect x="91" y="134" width="119" height="20" rx="10" fill="#FFC8DD"/>
+    <text x="150.5" y="148" text-anchor="middle" class="p">Jetpack Compose</text>
+    <rect x="218" y="134" width="46" height="20" rx="10" fill="#FFAFCC"/>
+    <text x="241.0" y="148" text-anchor="middle" class="p">Room</text>
+  </g>
+</svg>
