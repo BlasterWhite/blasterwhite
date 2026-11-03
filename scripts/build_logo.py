@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Builds the BlasterWhite logo: three "~" stacked close together, one color each.
 
-The tilde is the real glyph from Fira Code Bold, embedded below as an outline so the
+The tilde is the real glyph from Source Code Pro Black, embedded below as an outline so the
 script needs no font and no dependency. To try another font, pass --font (needs fontTools).
 
 Usage:
@@ -17,15 +17,13 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 INK = "#0B1A2B"
 COLORS = ["#F2404A", "#2BD540", "#19B4E8"]  # red, green, blue: same order as the hero ribbons
 
-# "asciitilde" from Fira Code Bold (SIL Open Font License 1.1), in font units, y pointing up.
-FIRA_TILDE = (
-    "M406 860Q480 860 534.5 830.0Q589 800 632.5 760.0Q676 720 716.5 690.0Q757 660 802 660"
-    "Q859 660 899.5 700.5Q940 741 980 817L1157 737Q1093 598 1010.5 509.5Q928 421 794 421"
-    "Q722 421 667.5 451.0Q613 481 569.0 521.0Q525 561 484.0 591.0Q443 621 398 621"
-    "Q340 621 299.5 579.0Q259 537 220 465L43 544Q84 628 134.0 700.0Q184 772 250.0 816.0"
-    "Q316 860 406 860Z"
+# "asciitilde" from Source Code Pro Black (SIL Open Font License 1.1), in font units, y pointing up.
+TILDE = (
+    "M384 234C450 234 512 278 558 386L456 434C438 384 413 354 386 354"
+    "C332 354 300 426 216 426C150 426 88 382 42 274L144 226"
+    "C162 276 188 306 214 306C268 306 300 234 384 234Z"
 )
-FIRA_BOUNDS = (43, 421, 1157, 860)  # xMin, yMin, xMax, yMax
+TILDE_BOUNDS = (42, 226, 558, 434)  # xMin, yMin, xMax, yMax
 
 
 def glyph_from_font(path, char="~"):
@@ -75,11 +73,11 @@ def main():
     ap.add_argument("--size", type=int, default=512, help="canvas size in px (square)")
     ap.add_argument("--margin", type=float, default=0.16, help="space around the logo, fraction of size")
     ap.add_argument("--bg", default=INK, help="background of the dark variant")
-    ap.add_argument("--font", help="take the tilde from this font file instead of Fira Code Bold (needs fontTools)")
+    ap.add_argument("--font", help="take the tilde from this font file instead of Source Code Pro Black (needs fontTools)")
     ap.add_argument("--out", default=str(ROOT / "profile"), help="output folder")
     a = ap.parse_args()
 
-    d, bounds = glyph_from_font(a.font) if a.font else (FIRA_TILDE, FIRA_BOUNDS)
+    d, bounds = glyph_from_font(a.font) if a.font else (TILDE, TILDE_BOUNDS)
     colors = [c.strip() for c in a.colors.split(",") if c.strip()]
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
