@@ -4,7 +4,7 @@
 
 I'm an engineering student at **ENSSAT**, working as a fullstack developer in **work-study**. I enjoy building clean web apps, from the API to the last pixel.
 
-I'm currently exploring **Kotlin / Jetpack Compose** and low-level **C++**. My daily driver is Linux (Fedora), tuned through my dotfiles.
+I'm currently exploring low-level **C++** and AI development, you have to live in your time ig. My daily driver is Linux (Fedora), tuned through my dotfiles.
 
 ## Tech stack
 
