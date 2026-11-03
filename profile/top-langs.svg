@@ -13,7 +13,7 @@
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-            fill: #B07CC6;
+            fill: #FFFFFF;
             animation: fadeInAnimation 0.8s ease-in-out forwards;
           }
           @supports(-moz-appearance: auto) {
@@ -38,7 +38,7 @@
       }
     }
     .stat {
-      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #4A3A5C;
+      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #C4D2E0;
     }
     @supports(-moz-appearance: auto) {
       /* Selector detects Firefox */
@@ -47,7 +47,7 @@
     .bold { font-weight: 700 }
     .lang-name {
       font: 400 11px "Segoe UI", Ubuntu, Sans-Serif;
-      fill: #4A3A5C;
+      fill: #C4D2E0;
     }
     .stagger {
       opacity: 0;
@@ -88,13 +88,6 @@
         
         <defs>
           
-          <linearGradient
-            id="gradient"
-            gradientTransform="rotate(30)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0%" stop-color="#F3E8FF" />,<stop offset="100%" stop-color="#FFE4EF" />
-          </linearGradient>
           
         </defs>
         
@@ -108,7 +101,7 @@
           height="99%"
           stroke="#e4e2e2"
           width="299"
-          fill="url(#gradient)"
+          fill="#0B1A2B"
           stroke-opacity="0"
         />
 
@@ -145,7 +138,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="118.54"
+          width="117"
           height="8"
           fill="#555555"
         />
@@ -153,9 +146,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="118.54"
+          x="117"
           y="0"
-          width="36.25"
+          width="38.26"
           height="8"
           fill="#3178c6"
         />
@@ -163,9 +156,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="154.79000000000002"
+          x="155.26"
           y="0"
-          width="25.9"
+          width="25.56"
           height="8"
           fill="#f1e05a"
         />
@@ -173,9 +166,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="180.69000000000003"
+          x="180.82"
           y="0"
-          width="22.3"
+          width="22.01"
           height="8"
           fill="#7355dd"
         />
@@ -183,9 +176,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="202.99000000000004"
+          x="202.82999999999998"
           y="0"
-          width="21.15"
+          width="20.87"
           height="8"
           fill="#41b883"
         />
@@ -193,9 +186,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="224.14000000000004"
+          x="223.7"
           y="0"
-          width="10.6"
+          width="10.46"
           height="8"
           fill="#b07219"
         />
@@ -203,9 +196,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="234.74000000000004"
+          x="234.16"
           y="0"
-          width="18.32"
+          width="18.21"
           height="8"
           fill="#e34c26"
         />
@@ -213,9 +206,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="243.06000000000003"
+          x="242.37"
           y="0"
-          width="16.94"
+          width="17.63"
           height="8"
           fill="#ff3e00"
         />
@@ -226,56 +219,56 @@
     <g class="stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#555555" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        C 47.42%
+        C 46.80%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TypeScript 14.50%
+        TypeScript 15.30%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms">
       <circle cx="5" cy="6" r="5" fill="#f1e05a" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        JavaScript 10.36%
+        JavaScript 10.23%
       </text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms">
       <circle cx="5" cy="6" r="5" fill="#7355dd" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        C# 8.92%
+        C# 8.80%
       </text>
     </g>
   </g></g><g transform="translate(150, 0)"><g transform="translate(0, 0)">
     <g class="stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#41b883" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Vue 8.46%
+        Vue 8.35%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#b07219" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Java 4.24%
+        Java 4.18%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms">
       <circle cx="5" cy="6" r="5" fill="#e34c26" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        HTML 3.33%
+        HTML 3.28%
       </text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms">
       <circle cx="5" cy="6" r="5" fill="#ff3e00" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Svelte 2.78%
+        Svelte 3.05%
       </text>
     </g>
   </g></g>
