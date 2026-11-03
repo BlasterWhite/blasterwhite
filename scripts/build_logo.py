@@ -70,7 +70,7 @@ def logo(d, bounds, size, colors, gap, margin, bg=None, radius=0.22):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--colors", default=",".join(COLORS), help="comma-separated colors, top to bottom")
-    ap.add_argument("--gap", type=float, default=-0.05,
+    ap.add_argument("--gap", type=float, default=0.05,
                     help="space between tildes, fraction of a tilde's height; negative nests them (pass as --gap=-0.1)")
     ap.add_argument("--size", type=int, default=512, help="canvas size in px (square)")
     ap.add_argument("--margin", type=float, default=0.16, help="space around the logo, fraction of size")
