@@ -21,28 +21,7 @@
 ## 🧁 Tech stack
 
 <p align="center">
-  <sub><b>LANGUAGES</b></sub><br />
-  <img src="https://skillicons.dev/icons?i=ts,js,py,java,kotlin,cpp,c,cs,php&theme=light" alt="Languages" />
-</p>
-
-<p align="center">
-  <sub><b>FRONTEND</b></sub><br />
-  <img src="https://skillicons.dev/icons?i=html,css,sass,vue,nuxt,vite,vuetify&theme=light" alt="Frontend" />
-</p>
-
-<p align="center">
-  <sub><b>BACKEND</b></sub><br />
-  <img src="https://skillicons.dev/icons?i=nodejs,express,graphql,kafka&theme=light" alt="Backend" />
-</p>
-
-<p align="center">
-  <sub><b>DATA</b></sub><br />
-  <img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,elasticsearch&theme=light" alt="Data" />
-</p>
-
-<p align="center">
-  <sub><b>TOOLS</b></sub><br />
-  <img src="https://skillicons.dev/icons?i=docker,nginx,git,linux,figma&theme=light" alt="Tools" />
+  <img src="./profile/stack.svg" alt="Tech stack: TypeScript, JavaScript, Python, Kotlin, Java, C++, C, C#, PHP, HTML, CSS, Sass, Vue, Nuxt, Vite, Vuetify, Node.js, Express, GraphQL, Kafka, PostgreSQL, MySQL, MongoDB, Elasticsearch, Docker, Nginx, Git, Linux, Figma" width="100%" />
 </p>
 
 <!-- Projects -->
